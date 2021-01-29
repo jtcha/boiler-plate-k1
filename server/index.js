@@ -9,7 +9,6 @@ const cookieParser = require('cookie-parser')
 const config = require('./config/key')
 const { auth } = require('./middleware/auth')
 
-
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -84,6 +83,10 @@ app.get('/api/users/logout', auth, (req, res) => {
             success: true
         })
     })
+})
+
+app.get('/api/hello', (req, res) => {
+    res.send('안녕하세요.')
 })
 
 app.get('/', (req, res) => res.send('Hello World!'))
